@@ -13,12 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
-Route::get('/users/{user}', [\App\Http\Controllers\UserController::class, 'show']);
-Route::post('/users',[\App\Http\Controllers\UserController::class, 'store']);
-Route::patch('/users/{user}',[\App\Http\Controllers\UserController::class, 'patch']);
-Route::delete('/users/{user}',[\App\Http\Controllers\UserController::class, 'destroy']);
 
+require __DIR__.'/api/users.php';
+require __DIR__.'/api/posts.php';
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
