@@ -45,7 +45,18 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $updated = $post->update([
+           'title' => $request->title ?? $post->title,
+           'body' => $request->body ?? $post->body
+        ]);
+        if(!$updated)
+            return new JsonResponse([
+               'error' => [
+                   'Failed to update model.'
+               ]
+            ],400);
+
+        return new JsonResponse($updated);
     }
 
     /**
