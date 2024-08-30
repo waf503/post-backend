@@ -21,7 +21,7 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        dd('test');
     }
 
     /**
